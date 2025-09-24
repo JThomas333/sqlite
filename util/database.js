@@ -6,7 +6,7 @@ db.prepare(`CREATE TABLE IF NOT EXISTS teams (id PRIMARY KEY AUTOINCREMENT, name
 
 export const getTeams = () => db.prepare('SELECT * FROM teams').all()
 export const getTeamById = (id) => db.prepare("SELECT * FROM teams WHERE id = ?").get(id)
-export const saveTeam = (name, score) => db.prepare("INSERT INTO teams (naem, score) VALUES (?, ?)").run(name,score)
+export const saveTeam = (name, score) => db.prepare("INSERT INTO teams (name, score) VALUES (?, ?)").run(name,score)
 export const updateTeam = (id, name, score) => db.prepare("UPDATE teams SET name=?, score=?, WHERE id = ?").run(name,score, id)
 export const deleteTeam = (id) => db.prepare("DELETE FROM teams WHERE id=?").run(id)
 
